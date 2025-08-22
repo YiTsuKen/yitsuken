@@ -1,10 +1,12 @@
 import { useState } from "react";
 
 import Hello from "../captchas/Hello";
+import Plato from "../captchas/Plato";
 // import Captcha2 from "../captchas/Captcha2";
 // import Captcha3 from "../captchas/Captcha3";
 
 const captchas = [
+  Plato,
   Hello,
 ];
 
