@@ -135,7 +135,7 @@ export default function CaptchaHuman({ onComplete }) {
           : ""}
       </p>
 
-      {result === true && <button
+      {result === true && onComplete && <button
         onClick={onComplete}
         className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 disabled:opacity-50"
       >
