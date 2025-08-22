@@ -5,7 +5,7 @@ export default function CaptchaHuman() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [verifying, setVerifying] = useState(false);
-  const [result, setResult] = useState(true);
+  const [result, setResult] = useState(null);
 
   // for control panel
   const [vouchCode, setVouchCode] = useState("");
