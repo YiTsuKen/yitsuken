@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Plato({ onComplete }) {
+export default function Essay({ onComplete }) {
   const [legs, setLegs] = useState("");
   const [bodyCover, setBodyCover] = useState("");
   const [success, setSuccess] = useState(false);
@@ -9,21 +9,16 @@ export default function Plato({ onComplete }) {
   const handleSubmit = () => {
     if (Number(legs) === 2 && bodyCover === "skin") {
       setSuccess(true);
-
-      setTimeout(() => {
-        onComplete();
-      }, 5000); // 5 seconds
-
     } else {
       setFailure(true);
-
-      setTimeout(() => {
-        setLegs("")
-        setBodyCover("")
-        setSuccess(false)
-        setFailure(false)
-      }, 5000); // 5 seconds
     }
+
+    setTimeout(() => {
+        onComplete({
+          legs: Number(legs),
+          bodyCover,
+        });
+      }, 5000); // 5 seconds
   };
 
   const isDisabled = legs === "" || bodyCover === "";

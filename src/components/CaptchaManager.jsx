@@ -6,6 +6,7 @@ import CaptchaWin95Popups from "../captchas/CaptchaWin95Popups";
 import CaptchaHoloEULA from "../captchas/CaptchaHoloEULA";
 import CaptchaCallKupari from "../captchas/CaptchaCallKupari";
 import CaptchaMinimalSlow from "../captchas/CaptchaMinimalSlow";
+import Existential from "../captchas/Existential";
 
 import Win95 from "../captchas/Win95";
 
@@ -14,6 +15,7 @@ const captchas = [
   CaptchaCallKupari,
   CaptchaHoloEULA,
   CaptchaWin95Popups,
+  Existential,
   Plato,
   Win95,
   Hello,
