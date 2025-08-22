@@ -5,10 +5,12 @@ import Plato from "../captchas/Plato";
 import CaptchaWin95Popups from "../captchas/CaptchaWin95Popups";
 import CaptchaHoloEULA from "../captchas/CaptchaHoloEULA";
 import CaptchaCallKupari from "../captchas/CaptchaCallKupari";
+import CaptchaMinimalSlow from "../captchas/CaptchaMinimalSlow";
 
 import Win95 from "../captchas/Win95";
 
 const captchas = [
+  CaptchaMinimalSlow,
   CaptchaCallKupari,
   CaptchaHoloEULA,
   CaptchaWin95Popups,
