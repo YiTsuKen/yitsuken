@@ -33,9 +33,12 @@ jobs:
         run: |
           npm run build
 
+      - name: Install deno deployctl
+        run: |
+          deno install -A jsr:@deno/deployctl --global
+
       - name: Upload to Deno Deploy
-        uses: denoland/deployctl@v1
-        with:
-          project: "yitsuken"
-          entrypoint: "backend/main.ts"
-          root: "."
+        env:
+          DENO_DEPLOY_TOKEN: ${{ secrets.DENO_DEPLOY_TOKEN }}
+        run: |
+          deployctl deploy --project=yitsuken backend/main.ts
