@@ -2,15 +2,15 @@ import { useState } from "react";
 
 import Hello from "../captchas/Hello";
 import Plato from "../captchas/Plato";
-// import Captcha2 from "../captchas/Captcha2";
-// import Captcha3 from "../captchas/Captcha3";
+import CaptchaWin95Popups from "../captchas/CaptchaWin95Popups";
 
 import Win95 from "../captchas/Win95";
 
 const captchas = [
-  Plato,
-  Win95,
-  Hello,
+  CaptchaWin95Popups,
+  // Plato,
+  // Win95,
+  // Hello,
 ];
 
 export default function CaptchaManager() {
