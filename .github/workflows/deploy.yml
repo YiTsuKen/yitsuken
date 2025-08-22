@@ -41,4 +41,4 @@ jobs:
         env:
           DENO_DEPLOY_TOKEN: ${{ secrets.DENO_DEPLOY_TOKEN }}
         run: |
-          deployctl deploy --project=yitsuken backend/main.ts
+          deployctl deploy --project=yitsuken --prod backend/main.ts
