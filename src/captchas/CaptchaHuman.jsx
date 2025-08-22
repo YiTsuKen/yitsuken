@@ -22,7 +22,9 @@ export default function CaptchaHuman() {
   
 
   useEffect(() => {
-    fetch("./api/getChallenge")
+    fetch("./api/getChallenge", {
+      credentials: "include"
+    })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -55,6 +57,7 @@ export default function CaptchaHuman() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({}),
+      credentials: "include"
     })
       .then((response) => {
         if (!response.ok) throw new Error("Failed to verify challenge");
@@ -82,6 +85,7 @@ export default function CaptchaHuman() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ challenge: vouchCode }),
+      credentials: "include"
     })
       .then((response) => {
         if (!response.ok) throw new Error("Failed to vouch challenge");
