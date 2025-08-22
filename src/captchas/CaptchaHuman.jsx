@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import QRCode from 'qrcode';
 
-export default function CaptchaHuman() {
+export default function CaptchaHuman({ onComplete }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -34,6 +34,7 @@ export default function CaptchaHuman() {
       .then((data) => {
         setData(data);
         setLoading(false);
+        handleCheck();
       })
       .catch((error) => {
         setError(error.message);
@@ -71,10 +72,6 @@ export default function CaptchaHuman() {
       })
       .finally(() => setVerifying(false));
   };
-
-  useEffect(() => {
-    handleCheck();
-  }, []);
 
   const handleVouch = () => {
     if (!vouchCode.trim()) return;
@@ -137,6 +134,13 @@ export default function CaptchaHuman() {
           ? result
           : ""}
       </p>
+
+      {result === true && <button
+        onClick={onComplete}
+        className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 disabled:opacity-50"
+      >
+        Proceed
+      </button>}
 
       {result === true && (
         <div className="space-y-4 border-t pt-4 mt-4">
