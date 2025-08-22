@@ -4,8 +4,12 @@ import Hello from "../captchas/Hello";
 // import Captcha2 from "../captchas/Captcha2";
 // import Captcha3 from "../captchas/Captcha3";
 
+import Win95 from "../captchas/Win95";
+
 const captchas = [
-  Hello,
+  // Hello,
+
+  Win95,
 ];
 
 export default function CaptchaManager() {
