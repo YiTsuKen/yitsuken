@@ -15,10 +15,12 @@ async function checkStatus(user_id: str): Promise<boolean> {
   return human
 }
 
-async function verifyStatus(user_id: str): void {
+async function verifyStatus(user_id: str): Promise<boolean> {
   const kv = await Deno.openKv();
 
   await kv.set([user_id], true)
+
+  return true
 }
 
 export async function handleApi(req: Request): Promise<Response> {

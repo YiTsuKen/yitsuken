@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useSearchParams } from "react-router-dom";
+import QRCode from 'qrcode';
 
 export default function CaptchaHuman() {
   const [data, setData] = useState(null);
@@ -7,10 +9,17 @@ export default function CaptchaHuman() {
   const [verifying, setVerifying] = useState(false);
   const [result, setResult] = useState(null);
 
+  const canvasRef = useRef(null);
+
   // for control panel
-  const [vouchCode, setVouchCode] = useState("");
+  const [searchParams] = useSearchParams();
+  const userId = searchParams.get("user_id"); // grabs user_id from query
+
+  const [vouchCode, setVouchCode] = useState(userId);
   const [vouching, setVouching] = useState(false);
   const [vouchResult, setVouchResult] = useState(null);
+
+  
 
   useEffect(() => {
     fetch("./api/getChallenge")
@@ -30,6 +39,14 @@ export default function CaptchaHuman() {
       });
   }, []);
 
+  useEffect(() => {
+    if (canvasRef.current) {
+      QRCode.toCanvas(canvasRef.current, `https://yitsuken.deno.dev/vouch?user_id=${data.challenge}`, { width: 200 }, (err) => {
+        if (err) console.error(err);
+      });
+    }
+  }, [data]);
+
   const handleCheck = () => {
     setVerifying(true);
     setResult(null);
@@ -37,7 +54,7 @@ export default function CaptchaHuman() {
     fetch("./api/checkChallenge", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ challenge: data.challenge }),
+      body: JSON.stringify({}),
     })
       .then((response) => {
         if (!response.ok) throw new Error("Failed to verify challenge");
@@ -51,6 +68,10 @@ export default function CaptchaHuman() {
       })
       .finally(() => setVerifying(false));
   };
+
+  useEffect(() => {
+    handleCheck();
+  }, []);
 
   const handleVouch = () => {
     if (!vouchCode.trim()) return;
@@ -67,6 +88,7 @@ export default function CaptchaHuman() {
         return response.json();
       })
       .then((res) => {
+        console.log(res)
         if (res.success) {
           setVouchResult("✅ Successfully vouched!");
           setVouchCode("");
@@ -89,6 +111,8 @@ export default function CaptchaHuman() {
       <p className="text-black-300">
         Talk with a verified human to prove you're a human
       </p>
+
+      <canvas ref={canvasRef} />
 
       <p className="text-black-300">Challenge code: {data.challenge}</p>
 
