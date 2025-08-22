@@ -33,8 +33,9 @@ jobs:
         run: |
           npm run build
 
-      - name: Deploy to Deno Deploy
-        run: |
-          curl -fsSL https://deno.land/x/deploy/install.sh | sh
-          export DENO_DEPLOY_TOKEN="${{ secrets.DENO_DEPLOY_TOKEN }}"
-          deployctl deploy --project=yitsuken --token=$DENO_DEPLOY_TOKEN
+      - name: Upload to Deno Deploy
+        uses: denoland/deployctl@v1
+        with:
+          project: "yitsuken"
+          entrypoint: "backend/main.ts"
+          root: "."
