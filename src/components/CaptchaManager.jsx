@@ -4,15 +4,17 @@ import Hello from "../captchas/Hello";
 import Plato from "../captchas/Plato";
 import CaptchaWin95Popups from "../captchas/CaptchaWin95Popups";
 import CaptchaHoloEULA from "../captchas/CaptchaHoloEULA";
+import CaptchaCallKupari from "../captchas/CaptchaCallKupari";
 
 import Win95 from "../captchas/Win95";
 
 const captchas = [
+  CaptchaCallKupari,
   CaptchaHoloEULA,
-  // CaptchaWin95Popups,
-  // Plato,
-  // Win95,
-  // Hello,
+  CaptchaWin95Popups,
+  Plato,
+  Win95,
+  Hello,
 ];
 
 export default function CaptchaManager() {
