@@ -7,10 +7,11 @@ import CaptchaHoloEULA from "../captchas/CaptchaHoloEULA";
 import CaptchaCallKupari from "../captchas/CaptchaCallKupari";
 import CaptchaMinimalSlow from "../captchas/CaptchaMinimalSlow";
 import Existential from "../captchas/Existential";
-
 import Win95 from "../captchas/Win95";
+import CaptchaHuman from "../captchas/CaptchaHuman";
 
 const captchas = [
+  CaptchaHuman,
   CaptchaMinimalSlow,
   CaptchaCallKupari,
   CaptchaHoloEULA,

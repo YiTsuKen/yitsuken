@@ -1,10 +1,17 @@
 import { serve } from "https://deno.land/std@0.203.0/http/server.ts";
 import { extname, join } from "https://deno.land/std@0.203.0/path/mod.ts";
 
+import { handleApi } from "./api.ts";
+
 const distPath = "./dist"; // path to Vite build output
 
 serve(async (req) => {
   const url = new URL(req.url);
+
+  if (url.pathname.startsWith("/api")) {
+    return handleApi(req);
+  }
+
   let filePath = join(distPath, url.pathname);
 
   // Serve index.html for root or unknown routes (React SPA fallback)
