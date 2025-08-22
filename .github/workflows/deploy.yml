@@ -34,7 +34,7 @@ jobs:
           npm run build
 
       - name: Deploy to Deno Deploy
-        uses: denoland/deployctl-action@v1
-        with:
-          project: yitsuken
-  
+        run: |
+          curl -fsSL https://deno.land/x/deploy/install.sh | sh
+          export DENO_DEPLOY_TOKEN="${{ secrets.DENO_DEPLOY_TOKEN }}"
+          deployctl deploy --project=yitsuken --token=$DENO_DEPLOY_TOKEN
