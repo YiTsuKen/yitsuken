@@ -12,13 +12,13 @@ import CaptchaHuman from "../captchas/CaptchaHuman";
 import CaptchaGeocache from "../captchas/CaptchaGeocache";
 
 const captchas = [
-  CaptchaGeocache,
-  CaptchaHuman,
   CaptchaMinimalSlow,
-  CaptchaCallKupari,
   CaptchaHoloEULA,
+  CaptchaHuman,
+  CaptchaCallKupari,
   CaptchaWin95Popups,
   Existential,
+  CaptchaGeocache,
   Plato,
   Win95,
 ];
