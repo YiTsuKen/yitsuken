@@ -35,7 +35,17 @@ export default function CaptchaManager() {
   return (
     <div>
       <h1>Stupid Captcha Site</h1>
+
       <NextCaptcha onComplete={handleComplete} />
+
+      <footer className="mt-auto p-4 text-center">
+        <a
+          href="/captcha"
+          className="inline-block px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition"
+        >
+          Captcha selection
+        </a>
+      </footer>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
 import CaptchaManager from "./components/CaptchaManager";
 
 import Hello from "./captchas/Hello";
@@ -42,8 +42,10 @@ function CaptchaList() {
 }
 
 function App() {
+  //const navigate = useNavigate();
+
   const returnToList = () => {
-    setIndex((prev) => (prev + 1) % captchas.length);
+    window.location.href = "/captcha";
   };
 
   return (

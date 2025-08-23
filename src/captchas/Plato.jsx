@@ -12,7 +12,7 @@ export default function Plato({ onComplete }) {
 
       setTimeout(() => {
         onComplete();
-      }, 5000); // 5 seconds
+      }, 3000); // 5 seconds
 
     } else {
       setFailure(true);
@@ -22,7 +22,7 @@ export default function Plato({ onComplete }) {
         setBodyCover("")
         setSuccess(false)
         setFailure(false)
-      }, 5000); // 5 seconds
+      }, 2000); // 5 seconds
     }
   };
 
