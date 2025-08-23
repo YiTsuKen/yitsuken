@@ -9,8 +9,10 @@ import CaptchaMinimalSlow from "../captchas/CaptchaMinimalSlow";
 import Existential from "../captchas/Existential";
 import Win95 from "../captchas/Win95";
 import CaptchaHuman from "../captchas/CaptchaHuman";
+import CaptchaGeocache from "../captchas/CaptchaGeocache";
 
 const captchas = [
+  CaptchaGeocache,
   CaptchaHuman,
   CaptchaMinimalSlow,
   CaptchaCallKupari,
