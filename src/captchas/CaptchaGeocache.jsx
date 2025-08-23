@@ -33,7 +33,7 @@ export default function CaptchaGeocache({ onComplete }) {
       <p className="text-black-600 text">To prove you're a human, input a code found from a geocache</p>
 
       <img
-          src="geocache_hint.png"
+          src="/geocache_hint.png"
           alt="Beneath the tiles, behind the sink,
 Where shadows linger, pipes that clink,
 A hollow stone, a secret seam,
@@ -75,7 +75,7 @@ The bathroom guards its secret too."
         <div className="space-y-4 text-center">
           <p className="text-green-600 font-bold text-lg">Success!</p>
           <img
-            src="geocaching.jpg"
+            src="/geocaching.jpg"
             alt="Geocaching!"
             className="mx-auto w-64 h-auto"
           />

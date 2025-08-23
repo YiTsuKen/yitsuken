@@ -21,7 +21,6 @@ const captchas = [
   Existential,
   Plato,
   Win95,
-  Hello,
 ];
 
 export default function CaptchaManager() {

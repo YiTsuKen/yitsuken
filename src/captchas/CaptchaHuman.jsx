@@ -22,7 +22,7 @@ export default function CaptchaHuman({ onComplete }) {
   
 
   useEffect(() => {
-    fetch("./api/getChallenge", {
+    fetch("/api/getChallenge", {
       credentials: "include"
     })
       .then((response) => {
@@ -54,7 +54,7 @@ export default function CaptchaHuman({ onComplete }) {
     setVerifying(true);
     setResult(null);
 
-    fetch("./api/checkChallenge", {
+    fetch("/api/checkChallenge", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({}),
@@ -78,7 +78,7 @@ export default function CaptchaHuman({ onComplete }) {
     setVouching(true);
     setVouchResult(null);
 
-    fetch("./api/proveChallenge", {
+    fetch("/api/proveChallenge", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ challenge: vouchCode }),

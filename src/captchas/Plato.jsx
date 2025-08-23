@@ -98,7 +98,7 @@ export default function Plato({ onComplete }) {
         <div className="space-y-4 text-center">
           <p className="text-green-600 font-bold text-lg">Success!</p>
           <img
-            src="behold.png"
+            src="/behold.png"
             alt="Behold, a human!"
             className="mx-auto w-64 h-auto"
           />
