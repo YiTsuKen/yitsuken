@@ -28,7 +28,23 @@ export default function CaptchaGeocache({ onComplete }) {
 
   return (
     <div className="p-4 space-y-4">
-      <h2 className="text-xl font-bold">Plato</h2>
+      <h2 className="text-xl font-bold">Geocache captcha</h2>
+
+      <p className="text-black-600 text">To prove you're a human, input a code found from a geocache</p>
+
+      <img
+          src="geocache_hint.png"
+          alt="Beneath the tiles, behind the sink,
+Where shadows linger, pipes that clink,
+A hollow stone, a secret seam,
+Reveals the gold of someone’s dream.
+
+Not pearls or coins, but something bright—
+A toothbrush gleams in silver light.
+Forgotten once, now treasure true,
+The bathroom guards its secret too."
+          className="mx-auto w-64 h-auto"
+        />
 
       {!(success || failure) ? (
         <>
